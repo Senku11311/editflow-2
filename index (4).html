@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-powered editing mentor. Get instant help with video editing, color grading, export settings, and content ideas.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>AI Assistant - EditFlow AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">EF</div>
+          <span>EditFlow</span>
+        </a>
+        <nav class="desktop-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/tutorials/" class="nav-link">Tutorials</a>
+          <a href="/ai-assistant/" class="nav-link active">AI Assistant</a>
+          <a href="/resources/" class="nav-link">Resources</a>
+          <a href="/troubleshooting/" class="nav-link">Fix Issues</a>
+          <a href="/community/" class="nav-link">Community</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()" aria-label="Search">&#128269;</button>
+          <a href="/login/" class="btn-primary" id="authBtn">Sign In</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="nav-link">&#127968; Home</a>
+      <a href="/tutorials/" class="nav-link">&#128218; Tutorials</a>
+      <a href="/ai-assistant/" class="nav-link active">&#129302; AI Assistant</a>
+      <a href="/resources/" class="nav-link">&#128230; Resources</a>
+      <a href="/troubleshooting/" class="nav-link">&#128295; Fix Issues</a>
+      <a href="/community/" class="nav-link">&#128101; Community</a>
+      <a href="/login/" class="nav-link" id="mobileAuth">&#128272; Sign In</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <span>&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+          <span class="search-shortcut">ESC</span>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <section class="section" style="padding-top: 24px; padding-bottom: 0;">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <h1 style="font-size: 1.5rem; font-weight: 700;">&#129302; AI Editing Mentor</h1>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Ask anything about video editing, effects, or content creation</p>
+          </div>
+
+          <div class="ai-modes">
+            <button class="ai-mode active" onclick="setMode('mentor', this)">&#127891; Mentor</button>
+            <button class="ai-mode" onclick="setMode('ideas', this)">&#128161; Ideas</button>
+            <button class="ai-mode" onclick="setMode('optimize', this)">&#9889; Optimize</button>
+            <button class="ai-mode" onclick="setMode('color', this)">&#127912; Color</button>
+            <button class="ai-mode" onclick="setMode('export', this)">&#128228; Export</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+              <div class="message ai">
+                <div class="message-avatar">&#129302;</div>
+                <div>
+                  <div class="message-bubble">Hey! I'm your AI editing mentor. I can help you with:<br><br>&#127891; Editing techniques & workflows<br>&#128161; Content ideas for YouTube/TikTok<br>&#9889; Performance optimization<br>&#127912; Color grading tips<br>&#128228; Export settings for any platform<br><br>What would you like to learn today?</div>
+                  <div class="message-time">Just now</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-input-area">
+              <div class="chat-input-wrapper">
+                <textarea class="chat-input" id="chatInput" placeholder="Ask me anything about editing..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}"></textarea>
+                <button class="chat-send" onclick="sendMessage()">&#10148;</button>
+              </div>
+              <div class="quick-questions">
+                <button class="quick-q" onclick="sendQuick('Best export settings for YouTube 4K?')">Best export settings for YouTube 4K?</button>
+                <button class="quick-q" onclick="sendQuick('How to fix lag in Premiere Pro?')">How to fix lag in Premiere Pro?</button>
+                <button class="quick-q" onclick="sendQuick('Give me 5 gaming video ideas')">Give me 5 gaming video ideas</button>
+                <button class="quick-q" onclick="sendQuick('How to color grade like a pro?')">How to color grade like a pro?</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo"><div class="logo-icon">EF</div><span>EditFlow</span></a>
+            <p>The ultimate AI-powered platform for video editors and content creators.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="/tutorials/">Tutorials</a>
+            <a href="/tutorials/">Gaming Edits</a>
+            <a href="/tutorials/">Anime Edits</a>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <a href="/ai-assistant/">AI Assistant</a>
+            <a href="/resources/">Free Resources</a>
+            <a href="/troubleshooting/">Fix Issues</a>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="/admin/">Admin Dashboard</a>
+            <a href="/login/">Sign In</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 EditFlow AI. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#">&#128250;</a>
+            <a href="#">&#128172;</a>
+            <a href="#">&#128038;</a>
+            <a href="#">&#128247;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-item"><span class="icon">&#127968;</span><span>Home</span></a>
+      <a href="/tutorials/" class="mobile-nav-item"><span class="icon">&#128218;</span><span>Learn</span></a>
+      <a href="/ai-assistant/" class="mobile-nav-item active"><span class="icon">&#129302;</span><span>AI</span></a>
+      <a href="/resources/" class="mobile-nav-item"><span class="icon">&#128230;</span><span>Resources</span></a>
+      <a href="/community/" class="mobile-nav-item"><span class="icon">&#128101;</span><span>Community</span></a>
+    </nav>
+  </div>
+
+  <script src="../shared/app.js"></script>
+  <script>
+    let currentMode = 'mentor';
+
+    const responses = {
+      mentor: {
+        'export': 'For YouTube 4K uploads, use these settings:<br><br><strong>Format:</strong> H.264 or H.265 (HEVC)<br><strong>Resolution:</strong> 3840x2160<br><strong>Frame Rate:</strong> Match your timeline (24/30/60fps)<br><strong>Bitrate:</strong> 35-45 Mbps for H.264, 20-25 Mbps for H.265<br><strong>Audio:</strong> AAC, 320kbps, 48kHz<br><br>Pro tip: Use 2-pass encoding for better quality!',
+        'lag': 'Here are the top fixes for Premiere Pro lag:<br><br>1. <strong>Lower playback resolution</strong> - Click the dropdown below the preview and select 1/4 or 1/8<br>2. <strong>Enable proxies</strong> - Right-click footage > Proxy > Create Proxies<br>3. <strong>Clear media cache</strong> - Edit > Preferences > Media Cache > Delete<br>4. <strong>Close background apps</strong> - Free up RAM (need 16GB+ recommended)<br>5. <strong>Move project to SSD</strong> - HDDs cause major bottlenecks<br><br>Also try disabling "Enable Mercury Transmit" if you don't use external monitors.',
+        'ideas': 'Here are 5 trending gaming video ideas:<br><br>1. <strong>"I Edited Like [Famous Editor]"</strong> - Recreate a popular editor's style<br>2. <strong>Speedrun Challenge</strong> - Edit a montage in under 1 hour<br>3. <strong>Before vs After</strong> - Show raw clips vs final edit<br>4. <strong>"Editing on a $100 Laptop"</strong> - Challenge video<br>5. <strong>Tutorial Breakdown</strong> - Teach one specific effect in depth<br><br>Want more ideas for a specific game or niche?',
+        'color': 'Here's a pro color grading workflow:<br><br><strong>Step 1:</strong> Fix exposure first - use curves to set proper blacks and whites<br><strong>Step 2:</strong> White balance - use the eyedropper on something neutral gray<br><strong>Step 3:</strong> Primary correction - adjust lift/gamma/gain for overall balance<br><strong>Step 4:</strong> Secondary correction - use HSL qualifiers to target specific colors<br><strong>Step 5:</strong> Apply LUT - use as a starting point, then dial it back to 50-70%<br><strong>Step 6:</strong> Final touches - add film grain, vignette, and subtle sharpening<br><br>Always grade on a calibrated monitor for best results!',
+        'default': 'That's a great question! Here's what I recommend:<br><br>Start by breaking down your project into smaller steps. Focus on one technique at a time - whether it's transitions, color, or sound design.<br><br>For more specific help, try asking about:<br>- Export settings for a specific platform<br>- How to achieve a specific effect<br>- Performance optimization tips<br>- Content ideas for your niche<br><br>What would you like to dive deeper into?'
+      },
+      ideas: {
+        'default': 'Here are some fresh content ideas:<br><br>1. <strong>Trending Audio Challenge</strong> - Use a viral sound and put your spin on it<br>2. <strong>Behind the Scenes</strong> - Show your editing process timelapse<br>3. <strong>React & Recreate</strong> - React to a popular edit, then recreate it<br>4. <strong>Editing Myths Busted</strong> - Debunk common editing misconceptions<br>5. <strong>One Effect Series</strong> - Deep dive into one effect per video<br><br>Want ideas for a specific platform or niche?'
+      },
+      optimize: {
+        'default': 'Here are optimization tips for your setup:<br><br><strong>Hardware:</strong><br>- Use SSD for OS, projects, and cache<br>- 32GB RAM minimum for 4K editing<br>- GPU with 8GB+ VRAM for smooth playback<br><br><strong>Software:</strong><br>- Enable GPU acceleration in settings<br>- Use proxy workflows for 4K+ footage<br>- Set cache to a fast SSD drive<br>- Close unnecessary background apps<br><br><strong>Project:</strong><br>- Organize media in bins/folders<br>- Delete unused sequences<br>- Render previews for complex sections<br><br>Want device-specific recommendations?'
+      },
+      color: {
+        'default': 'Color grading tips:<br><br><strong>Cinematic Look:</strong><br>- Crush blacks slightly (lift shadows)<br>- Add teal to shadows, orange to highlights<br>- Use film grain for texture<br>- Subtle vignette draws focus<br><br><strong>Gaming Look:</strong><br>- Boost saturation for impact<br>- Add chromatic aberration subtly<br>- Use LUTs designed for gameplay<br>- Match colors to game palette<br><br><strong>Anime Look:</strong><br>- High contrast with crushed blacks<br>- Vibrant, saturated colors<br>- Clean whites, deep blacks<br>- Consider adding glow effects<br><br>Want LUT recommendations?'
+      },
+      export: {
+        'default': 'Export settings guide:<br><br><strong>YouTube:</strong><br>- H.264, 1080p: 8-12 Mbps<br>- H.264, 4K: 35-45 Mbps<br>- Frame rate: match source<br><br><strong>TikTok/Instagram:</strong><br>- 1080x1920 (9:16)<br>- H.264, 6-8 Mbps<br>- 30 or 60fps<br><br><strong>Twitter/X:</strong><br>- 720p max recommended<br>- H.264, 5 Mbps<br>- Keep under 512MB<br><br><strong>ProRes (Master):</strong><br>- Use for archiving<br>- Huge files but best quality<br>- Re-export to any format later<br><br>Need settings for a specific platform?'
+      }
+    };
+
+    function setMode(mode, btn) {
+      currentMode = mode;
+      document.querySelectorAll('.ai-mode').forEach(m => m.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      input.value = '';
+      input.style.height = 'auto';
+
+      setTimeout(() => {
+        const reply = generateReply(text);
+        addMessage(reply, 'ai');
+      }, 800);
+    }
+
+    function sendQuick(text) {
+      addMessage(text, 'user');
+      setTimeout(() => {
+        const reply = generateReply(text);
+        addMessage(reply, 'ai');
+      }, 800);
+    }
+
+    function generateReply(text) {
+      const lower = text.toLowerCase();
+      const modeResponses = responses[currentMode] || responses.mentor;
+
+      if (lower.includes('export') || lower.includes('youtube') || lower.includes('settings')) return modeResponses.export || responses.mentor.export;
+      if (lower.includes('lag') || lower.includes('slow') || lower.includes('stutter')) return modeResponses.lag || responses.mentor.lag;
+      if (lower.includes('idea') || lower.includes('content') || lower.includes('video idea')) return modeResponses.ideas || responses.mentor.ideas;
+      if (lower.includes('color') || lower.includes('grade') || lower.includes('lut')) return modeResponses.color || responses.mentor.color;
+
+      return modeResponses.default || responses.mentor.default;
+    }
+
+    function addMessage(text, sender) {
+      const container = document.getElementById('chatMessages');
+      const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      const div = document.createElement('div');
+      div.className = 'message ' + sender;
+      div.innerHTML = `
+        <div class="message-avatar">${sender === 'ai' ? '&#129302;' : '&#128100;'}</div>
+        <div>
+          <div class="message-bubble">${text}</div>
+          <div class="message-time">${time}</div>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // Auto-resize textarea
+    document.getElementById('chatInput').addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    });
+  </script>
+</body>
+</html>

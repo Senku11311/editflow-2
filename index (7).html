@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the EditFlow community. Share your work, get feedback, and connect with other video editors.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Community - EditFlow AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">EF</div>
+          <span>EditFlow</span>
+        </a>
+        <nav class="desktop-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/tutorials/" class="nav-link">Tutorials</a>
+          <a href="/ai-assistant/" class="nav-link">AI Assistant</a>
+          <a href="/resources/" class="nav-link">Resources</a>
+          <a href="/troubleshooting/" class="nav-link">Fix Issues</a>
+          <a href="/community/" class="nav-link active">Community</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()" aria-label="Search">&#128269;</button>
+          <a href="/login/" class="btn-primary" id="authBtn">Sign In</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="nav-link">&#127968; Home</a>
+      <a href="/tutorials/" class="nav-link">&#128218; Tutorials</a>
+      <a href="/ai-assistant/" class="nav-link">&#129302; AI Assistant</a>
+      <a href="/resources/" class="nav-link">&#128230; Resources</a>
+      <a href="/troubleshooting/" class="nav-link">&#128295; Fix Issues</a>
+      <a href="/community/" class="nav-link active">&#128101; Community</a>
+      <a href="/login/" class="nav-link" id="mobileAuth">&#128272; Sign In</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <span>&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search community..." autocomplete="off">
+          <span class="search-shortcut">ESC</span>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <section class="section" style="padding-top: 32px;">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 8px;">EditFlow <span class="text-gradient">Community</span></h1>
+            <p>Connect with editors, share your work, and get feedback.</p>
+          </div>
+
+          <div class="cards-grid" style="grid-template-columns: 1fr;">
+            <div class="card animate-fade-up" style="text-align: center; padding: 48px 32px;">
+              <div class="card-icon" style="margin: 0 auto 20px; width: 72px; height: 72px; font-size: 2.5rem;">&#128101;</div>
+              <h2 style="font-size: 1.5rem; margin-bottom: 12px;">Join Our Discord Server</h2>
+              <p style="max-width: 500px; margin: 0 auto 24px; color: var(--text-secondary);">Connect with 10,000+ video editors. Share your work, get feedback, find collaborators, and stay updated with the latest editing trends.</p>
+              <a href="#" class="btn-large btn-gradient" style="margin-bottom: 12px;">&#128172; Join Discord</a>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Free to join. No invitation required.</p>
+            </div>
+          </div>
+
+          <div class="section-header animate-fade-up" style="margin-top: 48px;">
+            <h2>Featured <span class="text-gradient">Creators</span></h2>
+            <p>Amazing editors from our community.</p>
+          </div>
+
+          <div class="cards-grid">
+            <div class="card animate-fade-up" style="text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent-gradient); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">&#127918;</div>
+              <h3>ApexEditor</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Gaming Montages</p>
+              <p style="margin-top: 8px;">Known for insane Call of Duty transitions and sync.</p>
+              <div style="margin-top: 16px;">
+                <span class="card-tag">45K Subs</span>
+              </div>
+            </div>
+            <div class="card animate-fade-up delay-1" style="text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ec4899, #8b5cf6); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">&#9961;&#65039;</div>
+              <h3>AnimeVibes</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Anime Edits</p>
+              <p style="margin-top: 8px;">Creates viral TikTok anime edits with unique color grading.</p>
+              <div style="margin-top: 16px;">
+                <span class="card-tag">120K Subs</span>
+              </div>
+            </div>
+            <div class="card animate-fade-up delay-2" style="text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #3b82f6); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">&#127912;</div>
+              <h3>ColorMaster</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Color Grading</p>
+              <p style="margin-top: 8px;">Professional colorist sharing LUTs and grading techniques.</p>
+              <div style="margin-top: 16px;">
+                <span class="card-tag">32K Subs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header animate-fade-up" style="margin-top: 48px;">
+            <h2>Recent <span class="text-gradient">Discussions</span></h2>
+            <p>Hot topics from the community.</p>
+          </div>
+
+          <div style="display: grid; gap: 12px;">
+            <div class="resource-card animate-fade-up">
+              <div class="resource-icon">&#128172;</div>
+              <div class="resource-info">
+                <h3>Best free editing software in 2026?</h3>
+                <p>Looking for recommendations for beginner-friendly free editors...</p>
+                <div style="display: flex; gap: 12px; font-size: 0.75rem; color: var(--text-muted); margin-top: 8px;">
+                  <span>&#128100; EditNewbie</span>
+                  <span>&#128336; 2h ago</span>
+                  <span>&#128172; 24 replies</span>
+                </div>
+              </div>
+            </div>
+            <div class="resource-card animate-fade-up delay-1">
+              <div class="resource-icon">&#128172;</div>
+              <div class="resource-info">
+                <h3>How do I achieve this shake effect?</h3>
+                <p>I've been trying to recreate the shake from this video but can't figure it out...</p>
+                <div style="display: flex; gap: 12px; font-size: 0.75rem; color: var(--text-muted); margin-top: 8px;">
+                  <span>&#128100; ShakeFan</span>
+                  <span>&#128336; 5h ago</span>
+                  <span>&#128172; 18 replies</span>
+                </div>
+              </div>
+            </div>
+            <div class="resource-card animate-fade-up delay-2">
+              <div class="resource-icon">&#128172;</div>
+              <div class="resource-info">
+                <h3>Feedback on my first gaming montage</h3>
+                <p>Just finished my first COD montage. Would love some constructive feedback!</p>
+                <div style="display: flex; gap: 12px; font-size: 0.75rem; color: var(--text-muted); margin-top: 8px;">
+                  <span>&#128100; FirstEdit</span>
+                  <span>&#128336; 8h ago</span>
+                  <span>&#128172; 31 replies</span>
+                </div>
+              </div>
+            </div>
+            <div class="resource-card animate-fade-up">
+              <div class="resource-icon">&#128172;</div>
+              <div class="resource-info">
+                <h3>PC build for 4K editing under $1000</h3>
+                <p>Planning to build a budget editing PC. What specs should I prioritize?</p>
+                <div style="display: flex; gap: 12px; font-size: 0.75rem; color: var(--text-muted); margin-top: 8px;">
+                  <span>&#128100; BudgetBuilder</span>
+                  <span>&#128336; 12h ago</span>
+                  <span>&#128172; 42 replies</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo"><div class="logo-icon">EF</div><span>EditFlow</span></a>
+            <p>The ultimate AI-powered platform for video editors and content creators.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="/tutorials/">Tutorials</a>
+            <a href="/tutorials/">Gaming Edits</a>
+            <a href="/tutorials/">Anime Edits</a>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <a href="/ai-assistant/">AI Assistant</a>
+            <a href="/resources/">Free Resources</a>
+            <a href="/troubleshooting/">Fix Issues</a>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="/admin/">Admin Dashboard</a>
+            <a href="/login/">Sign In</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 EditFlow AI. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#">&#128250;</a>
+            <a href="#">&#128172;</a>
+            <a href="#">&#128038;</a>
+            <a href="#">&#128247;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-item"><span class="icon">&#127968;</span><span>Home</span></a>
+      <a href="/tutorials/" class="mobile-nav-item"><span class="icon">&#128218;</span><span>Learn</span></a>
+      <a href="/ai-assistant/" class="mobile-nav-item"><span class="icon">&#129302;</span><span>AI</span></a>
+      <a href="/resources/" class="mobile-nav-item"><span class="icon">&#128230;</span><span>Resources</span></a>
+      <a href="/community/" class="mobile-nav-item active"><span class="icon">&#128101;</span><span>Community</span></a>
+    </nav>
+  </div>
+
+  <script src="../shared/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to EditFlow AI - Access tutorials, AI assistant, and free resources.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Sign In - EditFlow AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">EF</div>
+          <span>EditFlow</span>
+        </a>
+        <nav class="desktop-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/tutorials/" class="nav-link">Tutorials</a>
+          <a href="/ai-assistant/" class="nav-link">AI Assistant</a>
+          <a href="/resources/" class="nav-link">Resources</a>
+          <a href="/troubleshooting/" class="nav-link">Fix Issues</a>
+          <a href="/community/" class="nav-link">Community</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()" aria-label="Search">&#128269;</button>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="nav-link">&#127968; Home</a>
+      <a href="/tutorials/" class="nav-link">&#128218; Tutorials</a>
+      <a href="/ai-assistant/" class="nav-link">&#129302; AI Assistant</a>
+      <a href="/resources/" class="nav-link">&#128230; Resources</a>
+      <a href="/troubleshooting/" class="nav-link">&#128295; Fix Issues</a>
+      <a href="/community/" class="nav-link">&#128101; Community</a>
+      <a href="/login/" class="nav-link active">&#128272; Sign In</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <span>&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+          <span class="search-shortcut">ESC</span>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <div class="auth-page">
+        <div class="auth-card animate-fade-up">
+          <a href="/" class="logo">
+            <div class="logo-icon">EF</div>
+            <span>EditFlow</span>
+          </a>
+          <h2>Welcome Back</h2>
+          <p class="subtitle">Sign in to access your saved resources and AI history</p>
+
+          <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" class="form-input" placeholder="you@example.com" required value="demo@editflow.ai">
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required value="demo123">
+            </div>
+            <button type="submit" class="btn-full">Sign In</button>
+          </form>
+
+          <div style="text-align: center; margin: 20px 0; color: var(--text-muted); font-size: 0.85rem;">or</div>
+
+          <button class="btn-full" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-color);" onclick="showToast('Google OAuth coming soon!', 'success')">
+            &#128279; Continue with Google
+          </button>
+
+          <div class="auth-footer">
+            <p>Demo: demo@editflow.ai / demo123</p>
+            <p style="margin-top: 8px;">Don't have an account? <a href="#" onclick="showSignup(); return false;">Sign up</a></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo"><div class="logo-icon">EF</div><span>EditFlow</span></a>
+            <p>The ultimate AI-powered platform for video editors and content creators.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="/tutorials/">Tutorials</a>
+            <a href="/tutorials/">Gaming Edits</a>
+            <a href="/tutorials/">Anime Edits</a>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <a href="/ai-assistant/">AI Assistant</a>
+            <a href="/resources/">Free Resources</a>
+            <a href="/troubleshooting/">Fix Issues</a>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="/admin/">Admin Dashboard</a>
+            <a href="/login/">Sign In</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 EditFlow AI. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#">&#128250;</a>
+            <a href="#">&#128172;</a>
+            <a href="#">&#128038;</a>
+            <a href="#">&#128247;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../shared/app.js"></script>
+  <script>
+    function showSignup() {
+      const card = document.querySelector('.auth-card');
+      card.innerHTML = `
+        <a href="/" class="logo"><div class="logo-icon">EF</div><span>EditFlow</span></a>
+        <h2>Create Account</h2>
+        <p class="subtitle">Join thousands of video editors</p>
+        <form onsubmit="handleSignup(event)">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-input" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-input" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-input" placeholder="Create a password" required>
+          </div>
+          <button type="submit" class="btn-full">Create Account</button>
+        </form>
+        <div class="auth-footer">
+          <p>Already have an account? <a href="#" onclick="location.reload(); return false;">Sign in</a></p>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

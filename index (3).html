@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Video editing tutorials for gaming, anime, TikTok, color grading, sound design, and motion graphics.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Tutorials - EditFlow AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">EF</div>
+          <span>EditFlow</span>
+        </a>
+        <nav class="desktop-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/tutorials/" class="nav-link active">Tutorials</a>
+          <a href="/ai-assistant/" class="nav-link">AI Assistant</a>
+          <a href="/resources/" class="nav-link">Resources</a>
+          <a href="/troubleshooting/" class="nav-link">Fix Issues</a>
+          <a href="/community/" class="nav-link">Community</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()" aria-label="Search">&#128269;</button>
+          <a href="/login/" class="btn-primary" id="authBtn">Sign In</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="nav-link">&#127968; Home</a>
+      <a href="/tutorials/" class="nav-link active">&#128218; Tutorials</a>
+      <a href="/ai-assistant/" class="nav-link">&#129302; AI Assistant</a>
+      <a href="/resources/" class="nav-link">&#128230; Resources</a>
+      <a href="/troubleshooting/" class="nav-link">&#128295; Fix Issues</a>
+      <a href="/community/" class="nav-link">&#128101; Community</a>
+      <a href="/login/" class="nav-link" id="mobileAuth">&#128272; Sign In</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <span>&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search tutorials..." autocomplete="off">
+          <span class="search-shortcut">ESC</span>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <section class="section" style="padding-top: 32px;">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 8px;">Video Editing <span class="text-gradient">Tutorials</span></h1>
+            <p>Step-by-step guides for every skill level and editing style.</p>
+          </div>
+
+          <div class="pills-row animate-fade-up">
+            <button class="pill active" onclick="filterTutorials('all', this)">All</button>
+            <button class="pill" onclick="filterTutorials('gaming', this)">&#127918; Gaming</button>
+            <button class="pill" onclick="filterTutorials('anime', this)">&#9961;&#65039; Anime</button>
+            <button class="pill" onclick="filterTutorials('shorts', this)">&#128241; Shorts</button>
+            <button class="pill" onclick="filterTutorials('color', this)">&#127912; Color</button>
+            <button class="pill" onclick="filterTutorials('sound', this)">&#128266; Sound</button>
+            <button class="pill" onclick="filterTutorials('motion', this)">&#10024; Motion</button>
+          </div>
+
+          <div class="cards-grid" id="tutorialsGrid">
+            <!-- Gaming -->
+            <div class="tutorial-card animate-fade-up" data-category="gaming">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Gaming Montage" loading="lazy">
+                <span class="tutorial-duration">12:34</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>How to Make a Pro Gaming Montage in After Effects</h3>
+                <div class="tutorial-meta">
+                  <span>&#127918; Gaming</span>
+                  <span>&#128065; 45K views</span>
+                  <span>&#128293; Advanced</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-1" data-category="gaming">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg" alt="COD Edit" loading="lazy">
+                <span class="tutorial-duration">8:45</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Call of Duty Edit: Sync, Effects & Transitions</h3>
+                <div class="tutorial-meta">
+                  <span>&#127918; Gaming</span>
+                  <span>&#128065; 32K views</span>
+                  <span>&#128293; Intermediate</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-2" data-category="gaming">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg" alt="Valorant Edit" loading="lazy">
+                <span class="tutorial-duration">15:20</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Valorant Montage Masterclass - Full Workflow</h3>
+                <div class="tutorial-meta">
+                  <span>&#127918; Gaming</span>
+                  <span>&#128065; 67K views</span>
+                  <span>&#128293; Advanced</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anime -->
+            <div class="tutorial-card animate-fade-up" data-category="anime">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/JGwWNGJdvx8/maxresdefault.jpg" alt="Anime Edit" loading="lazy">
+                <span class="tutorial-duration">10:15</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Anime Edit Tutorial: Shake, Velocity & Color</h3>
+                <div class="tutorial-meta">
+                  <span>&#9961;&#65039; Anime</span>
+                  <span>&#128065; 89K views</span>
+                  <span>&#128293; Intermediate</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-1" data-category="anime">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/OpzP3U1sZzQ/maxresdefault.jpg" alt="Anime AMV" loading="lazy">
+                <span class="tutorial-duration">18:30</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>AMV Editing: Scene Selection & Beat Sync</h3>
+                <div class="tutorial-meta">
+                  <span>&#9961;&#65039; Anime</span>
+                  <span>&#128065; 54K views</span>
+                  <span>&#128293; Advanced</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-2" data-category="anime">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/3JZ_D3ELmxo/maxresdefault.jpg" alt="TikTok Anime" loading="lazy">
+                <span class="tutorial-duration">6:45</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Viral TikTok Anime Edit in 10 Minutes</h3>
+                <div class="tutorial-meta">
+                  <span>&#9961;&#65039; Anime</span>
+                  <span>&#128065; 120K views</span>
+                  <span>&#128293; Beginner</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shorts -->
+            <div class="tutorial-card animate-fade-up" data-category="shorts">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/2Vv-BfVoq4g/maxresdefault.jpg" alt="TikTok Guide" loading="lazy">
+                <span class="tutorial-duration">9:20</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>TikTok Editing: Hooks, Captions & Fast Cuts</h3>
+                <div class="tutorial-meta">
+                  <span>&#128241; Shorts</span>
+                  <span>&#128065; 78K views</span>
+                  <span>&#128293; Beginner</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-1" data-category="shorts">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/60ItHLz5WEA/maxresdefault.jpg" alt="Reels" loading="lazy">
+                <span class="tutorial-duration">7:10</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Instagram Reels: Trending Effects & Templates</h3>
+                <div class="tutorial-meta">
+                  <span>&#128241; Shorts</span>
+                  <span>&#128065; 43K views</span>
+                  <span>&#128293; Beginner</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-2" data-category="shorts">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/ixkoVwKQaJg/maxresdefault.jpg" alt="YouTube Shorts" loading="lazy">
+                <span class="tutorial-duration">11:45</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>YouTube Shorts: Algorithm-Friendly Editing</h3>
+                <div class="tutorial-meta">
+                  <span>&#128241; Shorts</span>
+                  <span>&#128065; 95K views</span>
+                  <span>&#128293; Intermediate</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Color -->
+            <div class="tutorial-card animate-fade-up" data-category="color">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/5qm8PH4xAss/maxresdefault.jpg" alt="Color Grading" loading="lazy">
+                <span class="tutorial-duration">22:00</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Professional Color Grading in DaVinci Resolve</h3>
+                <div class="tutorial-meta">
+                  <span>&#127912; Color</span>
+                  <span>&#128065; 112K views</span>
+                  <span>&#128293; Advanced</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-1" data-category="color">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/L_jWHffIx5E/maxresdefault.jpg" alt="LUTs" loading="lazy">
+                <span class="tutorial-duration">14:30</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Creating Custom LUTs for Cinematic Looks</h3>
+                <div class="tutorial-meta">
+                  <span>&#127912; Color</span>
+                  <span>&#128065; 67K views</span>
+                  <span>&#128293; Intermediate</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sound -->
+            <div class="tutorial-card animate-fade-up" data-category="sound">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/hT_nvWreIhg/maxresdefault.jpg" alt="Sound Design" loading="lazy">
+                <span class="tutorial-duration">16:45</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Sound Design Masterclass: Layering & Mixing</h3>
+                <div class="tutorial-meta">
+                  <span>&#128266; Sound</span>
+                  <span>&#128065; 38K views</span>
+                  <span>&#128293; Advanced</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-1" data-category="sound">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/CevxZvSJLk8/maxresdefault.jpg" alt="Audio Sync" loading="lazy">
+                <span class="tutorial-duration">8:30</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Perfect Audio Sync: Beats, Drops & Impacts</h3>
+                <div class="tutorial-meta">
+                  <span>&#128266; Sound</span>
+                  <span>&#128065; 71K views</span>
+                  <span>&#128293; Intermediate</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Motion -->
+            <div class="tutorial-card animate-fade-up" data-category="motion">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/09R8_2nJtjg/maxresdefault.jpg" alt="Motion Graphics" loading="lazy">
+                <span class="tutorial-duration">20:15</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Motion Graphics: Titles, Lower Thirds & Animations</h3>
+                <div class="tutorial-meta">
+                  <span>&#10024; Motion</span>
+                  <span>&#128065; 56K views</span>
+                  <span>&#128293; Intermediate</span>
+                </div>
+              </div>
+            </div>
+            <div class="tutorial-card animate-fade-up delay-1" data-category="motion">
+              <div class="tutorial-thumb">
+                <img src="https://img.youtube.com/vi/fJ9rUzIMcZQ/maxresdefault.jpg" alt="Subtitles" loading="lazy">
+                <span class="tutorial-duration">11:00</span>
+              </div>
+              <div class="tutorial-body">
+                <h3>Dynamic Subtitles: Kinetic Typography Guide</h3>
+                <div class="tutorial-meta">
+                  <span>&#10024; Motion</span>
+                  <span>&#128065; 83K views</span>
+                  <span>&#128293; Beginner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo"><div class="logo-icon">EF</div><span>EditFlow</span></a>
+            <p>The ultimate AI-powered platform for video editors and content creators.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="/tutorials/">Tutorials</a>
+            <a href="/tutorials/">Gaming Edits</a>
+            <a href="/tutorials/">Anime Edits</a>
+            <a href="/tutorials/">Color Grading</a>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <a href="/ai-assistant/">AI Assistant</a>
+            <a href="/resources/">Free Resources</a>
+            <a href="/troubleshooting/">Fix Issues</a>
+            <a href="/community/">Community</a>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="/admin/">Admin Dashboard</a>
+            <a href="/login/">Sign In</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 EditFlow AI. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#">&#128250;</a>
+            <a href="#">&#128172;</a>
+            <a href="#">&#128038;</a>
+            <a href="#">&#128247;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-item"><span class="icon">&#127968;</span><span>Home</span></a>
+      <a href="/tutorials/" class="mobile-nav-item active"><span class="icon">&#128218;</span><span>Learn</span></a>
+      <a href="/ai-assistant/" class="mobile-nav-item"><span class="icon">&#129302;</span><span>AI</span></a>
+      <a href="/resources/" class="mobile-nav-item"><span class="icon">&#128230;</span><span>Resources</span></a>
+      <a href="/community/" class="mobile-nav-item"><span class="icon">&#128101;</span><span>Community</span></a>
+    </nav>
+  </div>
+
+  <script src="../shared/app.js"></script>
+  <script>
+    function filterTutorials(category, btn) {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.tutorial-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

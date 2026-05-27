@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free video editing resources: LUTs, transitions, overlays, fonts, presets, and effects.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Resources - EditFlow AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">EF</div>
+          <span>EditFlow</span>
+        </a>
+        <nav class="desktop-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/tutorials/" class="nav-link">Tutorials</a>
+          <a href="/ai-assistant/" class="nav-link">AI Assistant</a>
+          <a href="/resources/" class="nav-link active">Resources</a>
+          <a href="/troubleshooting/" class="nav-link">Fix Issues</a>
+          <a href="/community/" class="nav-link">Community</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()" aria-label="Search">&#128269;</button>
+          <a href="/login/" class="btn-primary" id="authBtn">Sign In</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="nav-link">&#127968; Home</a>
+      <a href="/tutorials/" class="nav-link">&#128218; Tutorials</a>
+      <a href="/ai-assistant/" class="nav-link">&#129302; AI Assistant</a>
+      <a href="/resources/" class="nav-link active">&#128230; Resources</a>
+      <a href="/troubleshooting/" class="nav-link">&#128295; Fix Issues</a>
+      <a href="/community/" class="nav-link">&#128101; Community</a>
+      <a href="/login/" class="nav-link" id="mobileAuth">&#128272; Sign In</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <span>&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search resources..." autocomplete="off">
+          <span class="search-shortcut">ESC</span>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <section class="section" style="padding-top: 32px;">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 8px;">Free Editing <span class="text-gradient">Resources</span></h1>
+            <p>Download presets, overlays, transitions, LUTs, fonts, and more.</p>
+          </div>
+
+          <div class="pills-row animate-fade-up">
+            <button class="pill active" onclick="filterResources('all', this)">All</button>
+            <button class="pill" onclick="filterResources('luts', this)">&#127912; LUTs</button>
+            <button class="pill" onclick="filterResources('transitions', this)">&#10024; Transitions</button>
+            <button class="pill" onclick="filterResources('overlays', this)">&#128306; Overlays</button>
+            <button class="pill" onclick="filterResources('fonts', this)">&#128292; Fonts</button>
+            <button class="pill" onclick="filterResources('presets', this)">&#9881;&#65039; Presets</button>
+            <button class="pill" onclick="filterResources('sound', this)">&#128266; SFX</button>
+          </div>
+
+          <div style="display: grid; gap: 12px;" id="resourcesGrid">
+            <div class="resource-card animate-fade-up" data-category="luts">
+              <div class="resource-icon">&#127912;</div>
+              <div class="resource-info">
+                <h3>Cinematic LUTs Pack v2</h3>
+                <p>50+ professional color grading LUTs for Premiere Pro, DaVinci Resolve, and Final Cut Pro</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Cinematic LUTs Pack v2')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Cinematic LUTs Pack v2')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-1" data-category="luts">
+              <div class="resource-icon">&#127912;</div>
+              <div class="resource-info">
+                <h3>Anime Style LUTs Collection</h3>
+                <p>25 vibrant LUTs inspired by popular anime aesthetics and color palettes</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Anime Style LUTs')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Anime Style LUTs')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-2" data-category="transitions">
+              <div class="resource-icon">&#10024;</div>
+              <div class="resource-info">
+                <h3>Smooth Transitions Pack</h3>
+                <p>100+ drag-and-drop transitions for After Effects and Premiere Pro</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Smooth Transitions Pack')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Smooth Transitions Pack')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up" data-category="transitions">
+              <div class="resource-icon">&#10024;</div>
+              <div class="resource-info">
+                <h3>Gaming Zoom & Shake Pack</h3>
+                <p>50+ impact transitions, zooms, and shake effects for gaming montages</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Gaming Zoom & Shake Pack')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Gaming Zoom & Shake Pack')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-1" data-category="overlays">
+              <div class="resource-icon">&#128306;</div>
+              <div class="resource-info">
+                <h3>Overlay Effects Collection</h3>
+                <p>Film grain, light leaks, dust particles, and VHS overlays for cinematic looks</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Overlay Effects Collection')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Overlay Effects Collection')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-2" data-category="overlays">
+              <div class="resource-icon">&#128306;</div>
+              <div class="resource-info">
+                <h3>HUD & Sci-Fi Elements Pack</h3>
+                <p>Futuristic HUD elements, scan lines, and tech overlays for gaming edits</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('HUD & Sci-Fi Elements')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('HUD & Sci-Fi Elements')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up" data-category="fonts">
+              <div class="resource-icon">&#128292;</div>
+              <div class="resource-info">
+                <h3>Gaming Fonts Collection</h3>
+                <p>30+ bold, impact fonts perfect for gaming thumbnails and titles</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Gaming Fonts Collection')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Gaming Fonts Collection')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-1" data-category="fonts">
+              <div class="resource-icon">&#128292;</div>
+              <div class="resource-info">
+                <h3>Cinematic Title Fonts</h3>
+                <p>Elegant serif and modern fonts for professional video titles</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Cinematic Title Fonts')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Cinematic Title Fonts')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-2" data-category="presets">
+              <div class="resource-icon">&#9881;&#65039;</div>
+              <div class="resource-info">
+                <h3>Premiere Pro Effects Presets</h3>
+                <p>Pre-configured effects for glow, chromatic aberration, and distortion</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Premiere Pro Effects Presets')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Premiere Pro Effects Presets')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up" data-category="presets">
+              <div class="resource-icon">&#9881;&#65039;</div>
+              <div class="resource-info">
+                <h3>After Effects Animation Presets</h3>
+                <p>Text animations, logo reveals, and motion graphics presets</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('After Effects Animation Presets')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('After Effects Animation Presets')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-1" data-category="sound">
+              <div class="resource-icon">&#128266;</div>
+              <div class="resource-info">
+                <h3>Impact SFX Pack</h3>
+                <p>100+ whooshes, hits, risers, and impacts for gaming and cinematic edits</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Impact SFX Pack')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Impact SFX Pack')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-card animate-fade-up delay-2" data-category="sound">
+              <div class="resource-icon">&#128266;</div>
+              <div class="resource-info">
+                <h3>Ambient Soundscapes</h3>
+                <p>Atmospheric backgrounds, drones, and textures for cinematic projects</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Ambient Soundscapes')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Ambient Soundscapes')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo"><div class="logo-icon">EF</div><span>EditFlow</span></a>
+            <p>The ultimate AI-powered platform for video editors and content creators.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="/tutorials/">Tutorials</a>
+            <a href="/tutorials/">Gaming Edits</a>
+            <a href="/tutorials/">Anime Edits</a>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <a href="/ai-assistant/">AI Assistant</a>
+            <a href="/resources/">Free Resources</a>
+            <a href="/troubleshooting/">Fix Issues</a>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="/admin/">Admin Dashboard</a>
+            <a href="/login/">Sign In</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 EditFlow AI. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#">&#128250;</a>
+            <a href="#">&#128172;</a>
+            <a href="#">&#128038;</a>
+            <a href="#">&#128247;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-item"><span class="icon">&#127968;</span><span>Home</span></a>
+      <a href="/tutorials/" class="mobile-nav-item"><span class="icon">&#128218;</span><span>Learn</span></a>
+      <a href="/ai-assistant/" class="mobile-nav-item"><span class="icon">&#129302;</span><span>AI</span></a>
+      <a href="/resources/" class="mobile-nav-item active"><span class="icon">&#128230;</span><span>Resources</span></a>
+      <a href="/community/" class="mobile-nav-item"><span class="icon">&#128101;</span><span>Community</span></a>
+    </nav>
+  </div>
+
+  <script src="../shared/app.js"></script>
+  <script>
+    function filterResources(category, btn) {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.resource-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

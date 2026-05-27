@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fix video editing issues: lag, crashes, rendering problems, FPS drops, and optimization guides.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Fix Issues - EditFlow AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">EF</div>
+          <span>EditFlow</span>
+        </a>
+        <nav class="desktop-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/tutorials/" class="nav-link">Tutorials</a>
+          <a href="/ai-assistant/" class="nav-link">AI Assistant</a>
+          <a href="/resources/" class="nav-link">Resources</a>
+          <a href="/troubleshooting/" class="nav-link active">Fix Issues</a>
+          <a href="/community/" class="nav-link">Community</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()" aria-label="Search">&#128269;</button>
+          <a href="/login/" class="btn-primary" id="authBtn">Sign In</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="nav-link">&#127968; Home</a>
+      <a href="/tutorials/" class="nav-link">&#128218; Tutorials</a>
+      <a href="/ai-assistant/" class="nav-link">&#129302; AI Assistant</a>
+      <a href="/resources/" class="nav-link">&#128230; Resources</a>
+      <a href="/troubleshooting/" class="nav-link active">&#128295; Fix Issues</a>
+      <a href="/community/" class="nav-link">&#128101; Community</a>
+      <a href="/login/" class="nav-link" id="mobileAuth">&#128272; Sign In</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <span>&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search fixes..." autocomplete="off">
+          <span class="search-shortcut">ESC</span>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <section class="section" style="padding-top: 32px;">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 8px;">Fix Common <span class="text-gradient">Issues</span></h1>
+            <p>Solutions for lag, crashes, rendering problems, FPS drops, and more.</p>
+          </div>
+
+          <div style="display: grid; gap: 12px;">
+            <div class="issue-card animate-fade-up">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon lag">&#128012;</div>
+                <div class="issue-title">
+                  <h3>Lag & Stuttering</h3>
+                  <span>Timeline playback is choppy and unresponsive</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Quick Fixes:</h4>
+                  <ul>
+                    <li>Lower playback resolution to 1/4 or 1/8 in the preview window</li>
+                    <li>Enable proxy media / optimized media for heavy footage</li>
+                    <li>Close background apps to free up RAM (Chrome especially)</li>
+                    <li>Move your project files to an SSD drive</li>
+                    <li>Clear media cache regularly (Edit &gt; Preferences &gt; Media Cache)</li>
+                  </ul>
+                  <h4>Advanced:</h4>
+                  <ul>
+                    <li>Increase allocated RAM in preferences (leave 4GB for OS)</li>
+                    <li>Disable "Enable Mercury Transmit" if not using external monitors</li>
+                    <li>Use ProRes proxies for 4K+ footage workflows</li>
+                    <li>Update GPU drivers to latest version</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="issue-card animate-fade-up delay-1">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon crash">&#128165;</div>
+                <div class="issue-title">
+                  <h3>Crashes & Freezes</h3>
+                  <span>Software crashes randomly or on startup</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Quick Fixes:</h4>
+                  <ul>
+                    <li>Update to the latest GPU drivers (NVIDIA/AMD/Intel)</li>
+                    <li>Allocate more RAM to your editor in preferences</li>
+                    <li>Disable GPU acceleration if your card is unstable</li>
+                    <li>Check for software updates and install latest patches</li>
+                    <li>Run as Administrator (Windows) or check permissions (Mac)</li>
+                  </ul>
+                  <h4>Advanced:</h4>
+                  <ul>
+                    <li>Delete preferences folder and let software regenerate</li>
+                    <li>Check Event Viewer (Windows) or Console (Mac) for error logs</li>
+                    <li>Test with a new project to isolate corrupt project files</li>
+                    <li>Disable third-party plugins one by one to find conflicts</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="issue-card animate-fade-up delay-2">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon render">&#9203;</div>
+                <div class="issue-title">
+                  <h3>Rendering Issues</h3>
+                  <span>Export fails, crashes, or produces corrupted files</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Quick Fixes:</h4>
+                  <ul>
+                    <li>Render to a different codec (try H.264 instead of ProRes)</li>
+                    <li>Export to a local drive, not external or network storage</li>
+                    <li>Disable GPU rendering and use software-only encoding</li>
+                    <li>Break long timelines into shorter segments</li>
+                    <li>Check available disk space (need 2x the expected file size)</li>
+                  </ul>
+                  <h4>Advanced:</h4>
+                  <ul>
+                    <li>Use Media Encoder instead of direct export from timeline</li>
+                    <li>Pre-render effects-heavy sections before final export</li>
+                    <li>Match sequence settings to footage to avoid re-encoding</li>
+                    <li>Try VBR 1-pass instead of 2-pass if time is critical</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="issue-card animate-fade-up">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon fps">&#128200;</div>
+                <div class="issue-title">
+                  <h3>FPS Drops & Low Performance</h3>
+                  <span>Game recording FPS drops while editing</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Quick Fixes:</h4>
+                  <ul>
+                    <li>Record at constant bitrate instead of variable bitrate</li>
+                    <li>Use hardware encoding (NVENC/AMD VCE/QuickSync)</li>
+                    <li>Lower recording resolution if editing on weak hardware</li>
+                    <li>Close all background apps while recording</li>
+                    <li>Record to a separate drive from your OS and game</li>
+                  </ul>
+                  <h4>Advanced:</h4>
+                  <ul>
+                    <li>Use OBS with CQP rate control for consistent quality</li>
+                    <li>Cap your in-game FPS to reduce GPU load while recording</li>
+                    <li>Allocate more VRAM to recording software</li>
+                    <li>Consider a dedicated recording PC (dual-PC setup)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="issue-card animate-fade-up delay-1">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon optimize">&#9889;</div>
+                <div class="issue-title">
+                  <h3>PC Optimization for Editing</h3>
+                  <span>Make your system faster for video editing</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Windows Optimization:</h4>
+                  <ul>
+                    <li>Set power plan to "High Performance"</li>
+                    <li>Disable Windows Game Mode (causes conflicts)</li>
+                    <li>Turn off real-time antivirus scanning for project folders</li>
+                    <li>Disable visual effects: System &gt; Advanced &gt; Performance</li>
+                    <li>Enable hardware-accelerated GPU scheduling</li>
+                  </ul>
+                  <h4>Mac Optimization:</h4>
+                  <ul>
+                    <li>Disable automatic graphics switching</li>
+                    <li>Clear system cache regularly</li>
+                    <li>Use Activity Monitor to find resource hogs</li>
+                    <li>Keep at least 20% free space on your drive</li>
+                  </ul>
+                  <h4>Hardware Upgrades (Priority Order):</h4>
+                  <ul>
+                    <li>1. SSD (biggest impact for most users)</li>
+                    <li>2. RAM (32GB minimum for 4K, 64GB for pro work)</li>
+                    <li>3. GPU (8GB+ VRAM for smooth playback)</li>
+                    <li>4. CPU (more cores = faster rendering)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="issue-card animate-fade-up delay-2">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon audio">&#127911;</div>
+                <div class="issue-title">
+                  <h3>Audio Issues</h3>
+                  <span>No sound, distorted audio, or sync problems</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Quick Fixes:</h4>
+                  <ul>
+                    <li>Check audio hardware settings and output device</li>
+                    <li>Clear audio cache and restart the software</li>
+                    <li>Convert variable frame rate audio to constant frame rate</li>
+                    <li>Check if audio is muted or solo'd on any track</li>
+                    <li>Update audio drivers (Realtek, ASIO, etc.)</li>
+                  </ul>
+                  <h4>Sync Issues:</h4>
+                  <ul>
+                    <li>Use "Merge Clips" or "Synchronize" features</li>
+                    <li>Manually sync using audio waveforms as reference</li>
+                    <li>Record audio and video on same device when possible</li>
+                    <li>Use timecode if your devices support it</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo"><div class="logo-icon">EF</div><span>EditFlow</span></a>
+            <p>The ultimate AI-powered platform for video editors and content creators.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="/tutorials/">Tutorials</a>
+            <a href="/tutorials/">Gaming Edits</a>
+            <a href="/tutorials/">Anime Edits</a>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <a href="/ai-assistant/">AI Assistant</a>
+            <a href="/resources/">Free Resources</a>
+            <a href="/troubleshooting/">Fix Issues</a>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="/admin/">Admin Dashboard</a>
+            <a href="/login/">Sign In</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 EditFlow AI. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#">&#128250;</a>
+            <a href="#">&#128172;</a>
+            <a href="#">&#128038;</a>
+            <a href="#">&#128247;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-item"><span class="icon">&#127968;</span><span>Home</span></a>
+      <a href="/tutorials/" class="mobile-nav-item"><span class="icon">&#128218;</span><span>Learn</span></a>
+      <a href="/ai-assistant/" class="mobile-nav-item"><span class="icon">&#129302;</span><span>AI</span></a>
+      <a href="/resources/" class="mobile-nav-item"><span class="icon">&#128230;</span><span>Resources</span></a>
+      <a href="/community/" class="mobile-nav-item"><span class="icon">&#128101;</span><span>Community</span></a>
+    </nav>
+  </div>
+
+  <script src="../shared/app.js"></script>
+</body>
+</html>

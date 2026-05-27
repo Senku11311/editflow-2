@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="EditFlow AI - The ultimate AI-powered platform for video editors and content creators. Learn, create, and grow with tutorials, resources, and AI assistance.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>EditFlow AI - AI-Powered Video Editing Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">EF</div>
+          <span>EditFlow</span>
+        </a>
+        <nav class="desktop-nav">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="tutorials/" class="nav-link">Tutorials</a>
+          <a href="ai-assistant/" class="nav-link">AI Assistant</a>
+          <a href="resources/" class="nav-link">Resources</a>
+          <a href="troubleshooting/" class="nav-link">Fix Issues</a>
+          <a href="community/" class="nav-link">Community</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()" aria-label="Search">&#128269;</button>
+          <a href="login/" class="btn-primary" id="authBtn">Sign In</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="nav-link active">&#127968; Home</a>
+      <a href="tutorials/" class="nav-link">&#128218; Tutorials</a>
+      <a href="ai-assistant/" class="nav-link">&#129302; AI Assistant</a>
+      <a href="resources/" class="nav-link">&#128230; Resources</a>
+      <a href="troubleshooting/" class="nav-link">&#128295; Fix Issues</a>
+      <a href="community/" class="nav-link">&#128101; Community</a>
+      <a href="admin/" class="nav-link">&#9881;&#65039; Admin</a>
+      <a href="login/" class="nav-link" id="mobileAuth">&#128272; Sign In</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <span>&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search tutorials, resources, fixes..." autocomplete="off">
+          <span class="search-shortcut">ESC</span>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="container">
+          <div class="hero-content animate-fade-up">
+            <div class="hero-badge">
+              <span class="pulse"></span>
+              AI-Powered Platform
+            </div>
+            <h1>Master Video Editing with <span class="gradient">AI Assistance</span></h1>
+            <p>Learn professional editing techniques, get AI-powered recommendations, and access free resources for gaming edits, anime edits, TikToks, and cinematic content.</p>
+            <div class="hero-actions">
+              <a href="tutorials/" class="btn-large btn-gradient">&#128218; Explore Tutorials</a>
+              <a href="ai-assistant/" class="btn-large btn-outline">&#129302; Ask AI Mentor</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-value">200+</div>
+                <div class="stat-label">Tutorials</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">50K+</div>
+                <div class="stat-label">Editors</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Resources</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h2>Everything You Need to <span class="text-gradient">Create</span></h2>
+            <p>From beginner basics to advanced cinematic techniques, we've got you covered.</p>
+          </div>
+          <div class="cards-grid">
+            <div class="card animate-fade-up delay-1">
+              <div class="card-icon">&#127918;</div>
+              <h3>Gaming Montages</h3>
+              <p>Learn how to create epic gaming montages with smooth transitions, sync, and effects for Call of Duty, Fortnite, Valorant, and more.</p>
+              <div class="card-footer">
+                <span class="card-tag">12 Tutorials</span>
+                <a href="tutorials/" style="color: var(--text-accent); font-size: 0.85rem; font-weight: 500;">Explore &rarr;</a>
+              </div>
+            </div>
+            <div class="card animate-fade-up delay-2">
+              <div class="card-icon">&#9961;&#65039;</div>
+              <h3>Anime Edits</h3>
+              <p>Master anime editing with shake effects, velocity ramps, color grading, and the perfect sync techniques for TikTok and YouTube.</p>
+              <div class="card-footer">
+                <span class="card-tag">15 Tutorials</span>
+                <a href="tutorials/" style="color: var(--text-accent); font-size: 0.85rem; font-weight: 500;">Explore &rarr;</a>
+              </div>
+            </div>
+            <div class="card animate-fade-up delay-3">
+              <div class="card-icon">&#128241;</div>
+              <h3>Shorts & Reels</h3>
+              <p>Create viral short-form content with hooks, fast pacing, captions, and platform-optimized export settings for maximum reach.</p>
+              <div class="card-footer">
+                <span class="card-tag">18 Tutorials</span>
+                <a href="tutorials/" style="color: var(--text-accent); font-size: 0.85rem; font-weight: 500;">Explore &rarr;</a>
+              </div>
+            </div>
+            <div class="card animate-fade-up delay-1">
+              <div class="card-icon">&#127912;</div>
+              <h3>Color Grading</h3>
+              <p>Professional color grading tutorials using LUTs, curves, wheels, and scopes to achieve cinematic looks for any footage.</p>
+              <div class="card-footer">
+                <span class="card-tag">10 Tutorials</span>
+                <a href="tutorials/" style="color: var(--text-accent); font-size: 0.85rem; font-weight: 500;">Explore &rarr;</a>
+              </div>
+            </div>
+            <div class="card animate-fade-up delay-2">
+              <div class="card-icon">&#128266;</div>
+              <h3>Sound Design</h3>
+              <p>Learn SFX layering, audio mixing, music sync, and how to create immersive soundscapes that elevate your edits.</p>
+              <div class="card-footer">
+                <span class="card-tag">8 Tutorials</span>
+                <a href="tutorials/" style="color: var(--text-accent); font-size: 0.85rem; font-weight: 500;">Explore &rarr;</a>
+              </div>
+            </div>
+            <div class="card animate-fade-up delay-3">
+              <div class="card-icon">&#10024;</div>
+              <h3>Motion Graphics</h3>
+              <p>Create stunning motion graphics, animated titles, lower thirds, and dynamic subtitles using After Effects and templates.</p>
+              <div class="card-footer">
+                <span class="card-tag">14 Tutorials</span>
+                <a href="tutorials/" style="color: var(--text-accent); font-size: 0.85rem; font-weight: 500;">Explore &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h2>Your <span class="text-gradient">AI Editing Mentor</span></h2>
+            <p>Get instant help, ideas, and optimization tips powered by AI.</p>
+          </div>
+          <div class="cards-grid" style="grid-template-columns: 1fr;">
+            <div class="card animate-fade-up" style="text-align: center; padding: 40px;">
+              <div class="card-icon" style="margin: 0 auto 20px; width: 64px; height: 64px; font-size: 2rem;">&#129302;</div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Ask Anything About Editing</h3>
+              <p style="max-width: 500px; margin: 0 auto 24px;">Stuck on a technique? Need export settings? Want ideas for your next video? Our AI mentor is here 24/7 to help you level up your editing skills.</p>
+              <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <span class="pill">Export Settings</span>
+                <span class="pill">Color Grading</span>
+                <span class="pill">Effects Help</span>
+                <span class="pill">Content Ideas</span>
+                <span class="pill">Optimization</span>
+              </div>
+              <a href="ai-assistant/" class="btn-large btn-gradient" style="margin-top: 28px;">&#128640; Start Chatting</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h2>Free <span class="text-gradient">Resources</span></h2>
+            <p>Download presets, overlays, transitions, LUTs, and more - all free.</p>
+          </div>
+          <div style="display: grid; gap: 12px;">
+            <div class="resource-card animate-fade-up delay-1">
+              <div class="resource-icon">&#127912;</div>
+              <div class="resource-info">
+                <h3>Cinematic LUTs Pack v2</h3>
+                <p>50+ professional color grading LUTs for Premiere Pro, DaVinci Resolve, and Final Cut Pro</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Cinematic LUTs Pack v2')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Cinematic LUTs Pack v2')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+            <div class="resource-card animate-fade-up delay-2">
+              <div class="resource-icon">&#10024;</div>
+              <div class="resource-info">
+                <h3>Smooth Transitions Pack</h3>
+                <p>100+ drag-and-drop transitions for After Effects and Premiere Pro</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Smooth Transitions Pack')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Smooth Transitions Pack')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+            <div class="resource-card animate-fade-up delay-3">
+              <div class="resource-icon">&#128306;</div>
+              <div class="resource-info">
+                <h3>Overlay Effects Collection</h3>
+                <p>Film grain, light leaks, dust particles, and VHS overlays for cinematic looks</p>
+                <div class="resource-actions">
+                  <button class="btn-sm btn-download" onclick="downloadResource('Overlay Effects Collection')">&#11015; Download</button>
+                  <button class="btn-sm btn-save" onclick="saveResource('Overlay Effects Collection')">&#128278; Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 32px;">
+            <a href="resources/" class="btn-large btn-outline">&#128230; View All Resources</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+          <div class="section-header animate-fade-up">
+            <h2>Fix Common <span class="text-gradient">Issues</span></h2>
+            <p>Solutions for lag, crashes, rendering problems, and optimization.</p>
+          </div>
+          <div style="display: grid; gap: 12px;">
+            <div class="issue-card animate-fade-up delay-1">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon lag">&#128012;</div>
+                <div class="issue-title">
+                  <h3>Lag & Stuttering</h3>
+                  <span>Timeline playback is choppy</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Quick Fixes:</h4>
+                  <ul>
+                    <li>Lower playback resolution to 1/4 or 1/8</li>
+                    <li>Enable proxy media / optimized media</li>
+                    <li>Close background apps to free RAM</li>
+                    <li>Use an SSD for your project files</li>
+                    <li>Clear media cache regularly</li>
+                  </ul>
+                  <a href="troubleshooting/" style="color: var(--text-accent); font-weight: 500;">View Full Guide &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="issue-card animate-fade-up delay-2">
+              <div class="issue-header" onclick="toggleIssue(this)">
+                <div class="issue-icon crash">&#128165;</div>
+                <div class="issue-title">
+                  <h3>Crashes & Freezes</h3>
+                  <span>Software keeps crashing</span>
+                </div>
+                <div class="issue-toggle">&#9660;</div>
+              </div>
+              <div class="issue-body">
+                <div class="issue-content">
+                  <h4>Quick Fixes:</h4>
+                  <ul>
+                    <li>Update to the latest GPU drivers</li>
+                    <li>Allocate more RAM to your editor</li>
+                    <li>Disable GPU acceleration if unstable</li>
+                    <li>Check for software updates</li>
+                    <li>Run as Administrator (Windows)</li>
+                  </ul>
+                  <a href="troubleshooting/" style="color: var(--text-accent); font-weight: 500;">View Full Guide &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 32px;">
+            <a href="troubleshooting/" class="btn-large btn-outline">&#128295; All Fixes & Guides</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo">
+              <div class="logo-icon">EF</div>
+              <span>EditFlow</span>
+            </a>
+            <p>The ultimate AI-powered platform for video editors and content creators. Learn, create, and grow together.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="tutorials/">Tutorials</a>
+            <a href="tutorials/">Gaming Edits</a>
+            <a href="tutorials/">Anime Edits</a>
+            <a href="tutorials/">Color Grading</a>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <a href="ai-assistant/">AI Assistant</a>
+            <a href="resources/">Free Resources</a>
+            <a href="troubleshooting/">Fix Issues</a>
+            <a href="community/">Community</a>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="admin/">Admin Dashboard</a>
+            <a href="login/">Sign In</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 EditFlow AI. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="YouTube">&#128250;</a>
+            <a href="#" aria-label="Discord">&#128172;</a>
+            <a href="#" aria-label="Twitter">&#128038;</a>
+            <a href="#" aria-label="Instagram">&#128247;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-item active">
+        <span class="icon">&#127968;</span>
+        <span>Home</span>
+      </a>
+      <a href="tutorials/" class="mobile-nav-item">
+        <span class="icon">&#128218;</span>
+        <span>Learn</span>
+      </a>
+      <a href="ai-assistant/" class="mobile-nav-item">
+        <span class="icon">&#129302;</span>
+        <span>AI</span>
+      </a>
+      <a href="resources/" class="mobile-nav-item">
+        <span class="icon">&#128230;</span>
+        <span>Resources</span>
+      </a>
+      <a href="community/" class="mobile-nav-item">
+        <span class="icon">&#128101;</span>
+        <span>Community</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="shared/app.js"></script>
+</body>
+</html>
