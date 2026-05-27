@@ -1,23 +1,12 @@
 {
-  "version": 2,
-  "public": true,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/tutorials", "dest": "/tutorials/index.html" },
-    { "src": "/ai-assistant", "dest": "/ai-assistant/index.html" },
-    { "src": "/resources", "dest": "/resources/index.html" },
-    { "src": "/troubleshooting", "dest": "/troubleshooting/index.html" },
-    { "src": "/community", "dest": "/community/index.html" },
-    { "src": "/admin", "dest": "/admin/index.html" },
-    { "src": "/login", "dest": "/login/index.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/shared/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/tutorials", "destination": "/tutorials/index.html" },
+    { "source": "/ai-assistant", "destination": "/ai-assistant/index.html" },
+    { "source": "/resources", "destination": "/resources/index.html" },
+    { "source": "/troubleshooting", "destination": "/troubleshooting/index.html" },
+    { "source": "/community", "destination": "/community/index.html" },
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/login", "destination": "/login/index.html" }
   ]
 }
